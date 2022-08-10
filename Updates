@@ -1,0 +1,12 @@
+V0.1
+ -Got base code from https://replit.com/talk/share/Python-ClickerIdle-game/24742
+ -Added house item to game and changed how the game worded things
+ -Started ading health system
+ -added house count to menu
+ -Added Attack_Rng
+ -added consistant health to main menu
+ -added health packs that heal your overall health
+ -added base code to the file directory
+ -when your reset your progress you gain +5 health
+ -added current attack value to menu
+ -Added boss battle with a reward of 200 coins
