@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import xlwt
 import random
 import os
+from pygame import mixer
 
 # Configs
 coins = 100
@@ -13,6 +14,7 @@ Attack = 2
 Boss_Attack = 7
 mega_resets = 0
 Kills = 0
+EDam = 1
 
 # this part of the config set the prices for the buy menu and the names for the item
 worker_cost = 100
@@ -27,8 +29,9 @@ sg.theme('Dark Green 7')
 
 layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Text("kills"),
            sg.Text(Kills, key='-TEXT3-')],
-          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Store")],
-          [sg.Text("Attack"), sg.Text(Attack), sg.Button("Work")],
+          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Text("Slave Cost"),
+           sg.Text(worker_cost, key='-TEXT5-')],
+          [sg.Text("Attack"), sg.Text(Attack), sg.Button("Work"), sg.Text("Difficulty"), sg.Text(EDam, key='-TEXT6-')],
           [sg.Text("Workers"), sg.Text(workers, key='-TEXT4-'), sg.Button("Heal")],
           [sg.Button("Quit"), sg.Button("Save")],
           [sg.Text("If you like the game please follow for more updates")]]
@@ -47,13 +50,19 @@ while True:
     if event in ('Quit'):
         break
 
-    if event in ('Store'):
+    if event in ('Buy Slave'):
+        mixer.init()
+        mixer.music.load("coin.mp3")
+        mixer.music.set_volume(10)
+        mixer.music.play()
         coins -= 1 * worker_cost
         workers += 1
+        worker_cost += 200 * workers
         # these lines update the window, test 1 - 3 are diffrent variables
         window['-TEXT-'].update(coins)
         window['-TEXT2-'].update(Health)
         window['-TEXT4-'].update(workers)
+        window['-TEXT5-'].update(worker_cost)
 
     if event in ('Save'):
         # this will save to an exel file
@@ -68,6 +77,10 @@ while True:
         book.save("GameSave.xls")
 
     if event in ('Heal'):
+        mixer.init()
+        mixer.music.load("health.mp3")
+        mixer.music.set_volume(0.3)
+        mixer.music.play()
         coins -= 20
         Health += 5
         # update window
@@ -79,6 +92,10 @@ while True:
         Attack_Rng = random.randint(0, 10)
         # if number is less then 5
         if Attack_Rng < 5:
+            mixer.init()
+            mixer.music.load("oof.mp3")
+            mixer.music.set_volume(0.5)
+            mixer.music.play()
             # you lose some health
             Health -= Attack * (resets + 1)
             # this updates the window texts
@@ -86,26 +103,38 @@ while True:
             window['-TEXT2-'].update(Health)
         else:
             # you kill the bandit
+            mixer.init()
+            mixer.music.load("Sword.mp3")
+            mixer.music.set_volume(0.3)
+            mixer.music.play()
+            # playsound('Sword.wav')
             # Health -= Attack * (resets + 1)
             coins += 20
             Kills += 1
+            EDam += 0.3 * Kills
             # this updates the window texts
             window['-TEXT-'].update(coins)
             window['-TEXT2-'].update(Health)
             window['-TEXT3-'].update(Kills)
+            window['-TEXT6-'].update(EDam)
 
     if event in ('Work'):
+        mixer.init()
+        mixer.music.load("work.mp3")
+        mixer.music.set_volume(0.3)
+        mixer.music.play()
         # add coins based on workers * 5
         coins += 5 * workers
         window['-TEXT-'].update(coins)
     # if your coins are less then 0 you lose
     if coins < 0:
-        os.system("test.py")
+
+        os.system("EndMenu.py")
         os.close()
         # break
     # if your health is 0 or less you lose
     if Health <= 0:
-        os.system("test.py")
+        os.system("EndMenu.py")
         os.close()
         # break
 window.close()

@@ -30,3 +30,12 @@ V0.3 "Clean-Up" Update
  -Formated code to PEP:8
  -added/Updated comments
 
+V0.4 (Logistics) Update
+ -Added EndMenu.py to replace the place holder that was the test.py
+ -Added sound features to game for all 4 buttons
+ -Tweaked sound levels
+ -Added Slave cost to gui
+ -Slave cost now increases by 200 * workers when buying a new worker
+ -Added eneime dificulty that incresses by 0.3 * kills
+
+V0.4.1 (Logistics PT.2) Update
