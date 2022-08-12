@@ -27,16 +27,19 @@ mega_reset_cost = 4
 
 sg.theme('Dark Green 7')
 
-layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Text("kills"),
+layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Push(), sg.Text("kills"),
            sg.Text(Kills, key='-TEXT3-')],
-          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Text("Slave Cost"),
+          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Push(), sg.Text("Slave Cost"),
            sg.Text(worker_cost, key='-TEXT5-')],
-          [sg.Text("Attack"), sg.Text(Attack), sg.Button("Work"), sg.Text("Difficulty"), sg.Text(EDam, key='-TEXT6-')],
+          [sg.Text("Attack"), sg.Text(Attack), sg.Button("Work"), sg.Push(), sg.Text("Difficulty"), sg.Text(EDam, key='-TEXT6-')],
           [sg.Text("Workers"), sg.Text(workers, key='-TEXT4-'), sg.Button("Heal")],
           [sg.Button("Quit"), sg.Button("Save")],
-          [sg.Text("If you like the game please follow for more updates")]]
+          [sg.VPush(), sg.Text("https://github.com/ModDayHippie/IdleGame/tree/main for more updates"),
+           [sg.Text("Goal of the game is to kill 1000 bad guys!!")],
+                    [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
-window = sg.Window('MDH-IdleGame', layout)
+                                  # these numpers are the window sixe first is width second is hight
+window = sg.Window('MDH-IdleGame', layout,size=(400, 280))
 
 # Main Event Loop
 
@@ -97,7 +100,7 @@ while True:
             mixer.music.set_volume(0.5)
             mixer.music.play()
             # you lose some health
-            Health -= Attack * (resets + 1)
+            Health -= EDam
             # this updates the window texts
             window['-TEXT-'].update(coins)
             window['-TEXT2-'].update(Health)
