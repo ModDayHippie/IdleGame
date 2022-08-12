@@ -1,10 +1,9 @@
 import PySimpleGUI as sg
-#import xlsxwriter
 import xlwt
 import random
 import os
 
-#Configs
+# Configs
 coins = 100
 Health = 10
 Houses = 0
@@ -15,35 +14,31 @@ Boss_Attack = 7
 mega_resets = 0
 Kills = 0
 
-#this part of the config set the prices for the buy menu and the names for the item
+# this part of the config set the prices for the buy menu and the names for the item
 worker_cost = 100
 House_Cost = 10000
 reset_cost = 1000000
 Health_Cost = 50
 mega_reset_cost = 4
 
-#This is the Gui Layouts
+# This is the Gui Layouts
 
 sg.theme('Dark Green 7')
 
-layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Text("kills"), sg.Text(Kills, key='-TEXT3-')],
-          [sg.Text("Health"),sg.Text(Health, key='-TEXT2-'), sg.Button("Store")],
-          [sg.Text("Attack"),sg.Text(Attack), sg.Button("Work")],
-          [sg.Text("Workers"),sg.Text(workers, key='-TEXT4-'), sg.Button("Heal")],
+layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Text("kills"),
+           sg.Text(Kills, key='-TEXT3-')],
+          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Store")],
+          [sg.Text("Attack"), sg.Text(Attack), sg.Button("Work")],
+          [sg.Text("Workers"), sg.Text(workers, key='-TEXT4-'), sg.Button("Heal")],
           [sg.Button("Quit"), sg.Button("Save")],
           [sg.Text("If you like the game please follow for more updates")]]
 
 window = sg.Window('MDH-IdleGame', layout)
 
-#Main Event Loop
+# Main Event Loop
 
 while True:
-    event, values =window.read()
-    #print(event, values)
-    #print("You Have")
-    #print("Coins: {}".format(coins))
-    #print("Health: {}".format(Health))
-    #print("Attack: {}".format(Attack))
+    event, values = window.read()
     window['-TEXT-'].update(coins)
     window['-TEXT2-'].update(Health)
     window['-TEXT3-'].update(Kills)
@@ -53,20 +48,15 @@ while True:
         break
 
     if event in ('Store'):
-        #print("Workers: {}".format(workers))
-        #print("Houses: {}".format(Houses))
-        #take away coins when buying workers
         coins -= 1 * worker_cost
         workers += 1
-        #window.refresh() might be a useless line
-        #print(coins)
-        #these lines update the window, test 1 - 3 are diffrent variables
+        # these lines update the window, test 1 - 3 are diffrent variables
         window['-TEXT-'].update(coins)
         window['-TEXT2-'].update(Health)
         window['-TEXT4-'].update(workers)
 
     if event in ('Save'):
-        #this will save to an exel file
+        # this will save to an exel file
         book = xlwt.Workbook(encoding="utf-8")
         sheet1 = book.add_sheet("Sheet 1")
         sheet1.write(0, 0, "coins")
@@ -80,7 +70,7 @@ while True:
     if event in ('Heal'):
         coins -= 20
         Health += 5
-        #update window
+        # update window
         window['-TEXT-'].update(coins)
         window['-TEXT2-'].update(Health)
 
@@ -90,35 +80,32 @@ while True:
         # if number is less then 5
         if Attack_Rng < 5:
             # you lose some health
-            #print("Attack Failed")
             Health -= Attack * (resets + 1)
-            #print("Health: {}".format(Health))
-            #this updates the window texts
+            # this updates the window texts
             window['-TEXT-'].update(coins)
             window['-TEXT2-'].update(Health)
         else:
-            # you lose some health
-            #print("You Attacked Bandit")
-            #Health -= Attack * (resets + 1)
+            # you kill the bandit
+            # Health -= Attack * (resets + 1)
             coins += 20
             Kills += 1
-            #print("Health: {}".format(Health))
             # this updates the window texts
             window['-TEXT-'].update(coins)
             window['-TEXT2-'].update(Health)
             window['-TEXT3-'].update(Kills)
 
     if event in ('Work'):
+        # add coins based on workers * 5
         coins += 5 * workers
         window['-TEXT-'].update(coins)
-    #if your coins are less then 0 you lose
+    # if your coins are less then 0 you lose
     if coins < 0:
         os.system("test.py")
         os.close()
-        #break
-    #if your health is 0 or less you lose
+        # break
+    # if your health is 0 or less you lose
     if Health <= 0:
         os.system("test.py")
         os.close()
-        #break
+        # break
 window.close()

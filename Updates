@@ -1,4 +1,4 @@
-V0.1
+V0.1 "Origins" Update
  -Got base code from https://replit.com/talk/share/Python-ClickerIdle-game/24742
  -Added house item to game and changed how the game worded things
  -Started ading health system
@@ -11,7 +11,7 @@ V0.1
  -added current attack value to menu
  -Added boss battle with a reward of 200 coins
 
-V0.0.1
+V0.0.1 "GUI" Update
  -Added Gamesave feature, working on loading save data
  -front end drafted just needs to be murged with the back end
  -made gui show updated informations on coins
@@ -20,4 +20,13 @@ V0.0.1
  -added end game when you die or go broke
  -added death screen that kills the script on exit
  -added work fuction that gives lower ammounts of coins but no risk to health
+
+V0.3 "Clean-Up" Update
+ -Renamed Main.py to Base.py
+ -Removed all traces of old terminal builds from gui script
+ -Deleted test.py
+ -Updated Readme and Credits
+ -Removed unneeded moduals
+ -Formated code to PEP:8
+ -added/Updated comments
 
