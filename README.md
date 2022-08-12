@@ -5,4 +5,3 @@
  To install go to "start" then search "Command Prompt"
  after type in "pip install replit"
  let the command shell run and install the needed modual
- 

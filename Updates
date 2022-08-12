@@ -10,3 +10,14 @@ V0.1
  -when your reset your progress you gain +5 health
  -added current attack value to menu
  -Added boss battle with a reward of 200 coins
+
+V0.0.1
+ -Added Gamesave feature, working on loading save data
+ -front end drafted just needs to be murged with the back end
+ -made gui show updated informations on coins
+ -made gui fully update data about game (coins, health, workers, ect)
+ -Muted all lines that pertained to the terminal only version (V0.1)
+ -added end game when you die or go broke
+ -added death screen that kills the script on exit
+ -added work fuction that gives lower ammounts of coins but no risk to health
+

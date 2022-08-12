@@ -4,6 +4,9 @@ from replit import clear
 from time import sleep as wait
 import math
 import random
+import PySimpleGUI as sg
+
+
 
 # Config
 coins = 0
@@ -225,7 +228,7 @@ while True:
 
     #these lines are the combat system that take health away
     elif run_arg == "f":
-        # rng pciks a number from 1-10
+        # rng picks a number from 1-10
         Attack_Rng = random.randint(0,10)
         # if number is less then 5
         if Attack_Rng > 5:
@@ -234,3 +237,4 @@ while True:
                 Health -= Attack * (resets + 1)
     else:
         coins += workers * (resets + 1)
+
