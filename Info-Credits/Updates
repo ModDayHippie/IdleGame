@@ -42,3 +42,14 @@ V0.5 (Format) Update
 -Cleaned up Directory
 -Formated Gui to be more asteticly pleasing
 -added game info to bottom of gui
+
+V0.6 (Boss) Update
+ -added boss battle, can kill him over a period of time
+ -made it so his attack goes up over time
+ -added info for boss to gui
+ -added auto work checkbox to gui (dose not work)
+ -added a grind button that grinds 10 works, has rng that makes one of your workers die if failed
+ -added attack increase scaling up till 30 kills
+ -Tweaked Grind RNG
+ -Can No longer "die" from buying a slave when not havingn enough money
+ -Changed game name to MDH-CLickerGame
