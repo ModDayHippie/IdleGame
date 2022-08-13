@@ -49,10 +49,18 @@ V0.6 (Boss) Update
  -added info for boss to gui
  -added auto work checkbox to gui (dose not work)
  -added a grind button that grinds 10 works, has rng that makes one of your workers die if failed
- -added attack increase scaling up till 30 kills
+ -added attack increase scaling up till 20 kills
  -Tweaked Grind RNG
  -Can No longer "die" from buying a slave when not havingn enough money
  -Changed game name to MDH-CLickerGame
 
-V0.7 (Houseing) Update
+V0.7 (Housing) Update
  -Added house count and house buy button
+ -Added files for distro on pip
+ -Can no longer die from going broke when buying health
+ -Cleaned up backed to pep8
+ -Renamed game to MDH-ClickerGame
+ -Change GUI theme to DarkGrey3 from DarkGreen7
+ -Added manual install instructions for windows and ubuntu
+ -fixed typo in V0.6 update note
+

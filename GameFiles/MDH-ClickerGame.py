@@ -35,26 +35,29 @@ mega_reset_cost = 4
 # window['-TEXT8-'].update(Boss_Attack)
 
 # This is the Gui Layouts
-sg.theme('Dark Green 7')
+sg.theme('DarkGrey3')
 
 layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Button('Boss'),
            [sg.Checkbox('Auto Work:', key='checkbox')],
            sg.Push(), sg.Text("kills"),
            sg.Text(Kills, key='-TEXT3-')],
-          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Button('Buy House'), sg.Push(), sg.Text("Slave Cost"),
+          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"),
+           sg.Button('Buy House'), sg.Push(), sg.Text("Slave Cost"),
            sg.Text(worker_cost, key='-TEXT5-')],
-          [sg.Text("Attack"), sg.Text(Attack, key='-TEXT1-'), sg.Button("Work"), sg.Button("Grind"), sg.Push(), sg.Text("Difficulty"),
+          [sg.Text("Attack"), sg.Text(Attack, key='-TEXT1-'), sg.Button("Work"), sg.Button("Grind"),
+           sg.Push(), sg.Text("Difficulty"),
            sg.Text(EDam, key='-TEXT6-')],
           [sg.Text("Workers"), sg.Text(workers, key='-TEXT4-'), sg.Button("Heal"), sg.Push(),
            sg.Text("Boss Health"), sg.Text(Boss_Health, key='-TEXT7-')],
-          [sg.Text("Houses"), sg.Text(Houses, key='-TEXT9-'), sg.Push(), sg.Text("Boss Attack"), sg.Text(Boss_Attack, key='-TEXT8-')],
+          [sg.Text("Houses"), sg.Text(Houses, key='-TEXT9-'), sg.Push(), sg.Text("Boss Attack"),
+           sg.Text(Boss_Attack, key='-TEXT8-')],
           [sg.Button("Quit"), sg.Button("Save")],
-          [sg.VPush(), sg.Text("https://github.com/ModDayHippie/IdleGame/tree/main for more updates"),
+          [sg.VPush(), sg.Text("https://github.com/ModDayHippie/IdleGame for more updates"),
            [sg.Text("Goal of the game is to kill 1000 bad guys!!")],
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
                                 # these numpers are the window sixe first is width second is hight
-window = sg.Window('MDH-ClickerGame', layout, size=(400, 300))
+window = sg.Window('MDH-ClickerGame', layout, size=(460, 300))
 
 # Main Event Loop
 
@@ -69,7 +72,7 @@ while True:
     window['-TEXT6-'].update(EDam)
     window['-TEXT7-'].update(Boss_Health)
     window['-TEXT8-'].update(Boss_Attack)
-    window['-TEXT-'].update(Houses)
+    window['-TEXT9-'].update(Houses)
 
     if event in ('Quit'):
         break
@@ -78,6 +81,7 @@ while True:
         print("hello")
 
     if event in ('Buy Slave'):
+        # if you dont have enough coins the code just updates the live variable
         if coins <= worker_cost:
             window['-TEXT-'].update(coins)
             window['-TEXT1-'].update(Attack)
@@ -116,15 +120,27 @@ while True:
         book.save("GameSave.xls")
 
     if event in ('Heal'):
-        mixer.init()
-        mixer.music.load("health.mp3")
-        mixer.music.set_volume(0.3)
-        mixer.music.play()
-        coins -= 20
-        Health += 5
-        # update window
-        window['-TEXT-'].update(coins)
-        window['-TEXT2-'].update(Health)
+        # if you dont have enough coins the code just updates the live variable
+        if coins <= worker_cost:
+            window['-TEXT-'].update(coins)
+            window['-TEXT1-'].update(Attack)
+            window['-TEXT2-'].update(Health)
+            window['-TEXT3-'].update(Kills)
+            window['-TEXT4-'].update(workers)
+            window['-TEXT5-'].update(worker_cost)
+            window['-TEXT6-'].update(EDam)
+            window['-TEXT7-'].update(Boss_Health)
+            window['-TEXT8-'].update(Boss_Attack)
+        else:
+            mixer.init()
+            mixer.music.load("health.mp3")
+            mixer.music.set_volume(0.3)
+            mixer.music.play()
+            coins -= 20
+            Health += 5
+            # update window
+            window['-TEXT-'].update(coins)
+            window['-TEXT2-'].update(Health)
 
     if event in ('Fight'):
         # rng picks a number from 1-10
@@ -146,8 +162,6 @@ while True:
             mixer.music.load("Sword.mp3")
             mixer.music.set_volume(0.3)
             mixer.music.play()
-            # playsound('Sword.wav')
-            # Health -= Attack * (resets + 1)
             coins += 20
             Kills += 1
             EDam += 0.3 * Kills
@@ -165,11 +179,13 @@ while True:
         # add coins based on workers * 5
         coins += 5 * workers
         window['-TEXT-'].update(coins)
+
     # if your coins are less then 0 you lose
     if coins < 0:
         os.system("EndMenu.py")
         os.close()
         # break
+
     # if your health is 0 or less you lose
     if Health <= 0:
         os.system("EndMenu.py")
@@ -201,6 +217,7 @@ while True:
             window['-TEXT8-'].update(Boss_Attack)
 
     if event in ('Buy House'):
+        # if you dont have enough coins the code just updates the live variables
         if coins <= House_Cost:
             window['-TEXT-'].update(coins)
             window['-TEXT1-'].update(Attack)
@@ -211,6 +228,7 @@ while True:
             window['-TEXT6-'].update(EDam)
             window['-TEXT7-'].update(Boss_Health)
             window['-TEXT8-'].update(Boss_Attack)
+            window['-TEXT9-'].update(Houses)
         else:
             mixer.init()
             mixer.music.load("coin.mp3")
@@ -219,16 +237,15 @@ while True:
             coins -= 1 * House_Cost
             Houses += 1
             worker_cost += 200 * workers
+            Attack += 10
             # these lines update the window, test 1 - 3 are diffrent variables
             window['-TEXT-'].update(coins)
+            window['-TEXT1-'].update(Attack)
             window['-TEXT2-'].update(Health)
             window['-TEXT4-'].update(workers)
             window['-TEXT5-'].update(worker_cost)
+            window['-TEXT9-'].update(Houses)
             print("House Buy DEBUG")
-
-
-
-
 
     if event in ('Grind'):
         Grind_Rng = random.randint(0, 10)
@@ -238,6 +255,7 @@ while True:
         else:
             coins += 8 * workers * 10
             window['-TEXT-'].update(coins)
+            window['-TEXT1-'].update(Attack)
             window['-TEXT2-'].update(Health)
             window['-TEXT3-'].update(Kills)
             window['-TEXT4-'].update(workers)
@@ -245,7 +263,9 @@ while True:
             window['-TEXT6-'].update(EDam)
             window['-TEXT7-'].update(Boss_Health)
             window['-TEXT8-'].update(Boss_Attack)
+            window['-TEXT9-'].update(Houses)
 
+# These lines increase your attack as your kills increase
     if Kills == 5:
         Attack += 2
         window['-TEXT-'].update(coins)
@@ -290,7 +310,5 @@ while True:
         window['-TEXT6-'].update(EDam)
         window['-TEXT7-'].update(Boss_Health)
         window['-TEXT8-'].update(Boss_Attack)
-
-
 
 window.close()
