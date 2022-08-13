@@ -20,7 +20,7 @@ Boss_Health = 100
 worker_cost = 100
 House_Cost = 10000
 reset_cost = 1000000
-Health_Cost = 50
+Health_Cost = 20
 mega_reset_cost = 4
 
 # key list
@@ -56,7 +56,7 @@ layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), s
            [sg.Text("Goal of the game is to kill 1000 bad guys!!")],
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
-                                # these numpers are the window sixe first is width second is hight
+                                # these numbers are the window sixe first is width second is hight
 window = sg.Window('MDH-ClickerGame', layout, size=(460, 300))
 
 # Main Event Loop
@@ -121,7 +121,7 @@ while True:
 
     if event in ('Heal'):
         # if you dont have enough coins the code just updates the live variable
-        if coins <= worker_cost:
+        if coins <= Health_Cost:
             window['-TEXT-'].update(coins)
             window['-TEXT1-'].update(Attack)
             window['-TEXT2-'].update(Health)
@@ -136,7 +136,7 @@ while True:
             mixer.music.load("health.mp3")
             mixer.music.set_volume(0.3)
             mixer.music.play()
-            coins -= 20
+            coins -= Health_Cost
             Health += 5
             # update window
             window['-TEXT-'].update(coins)
