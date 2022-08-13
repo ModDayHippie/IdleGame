@@ -20,8 +20,11 @@
 4.)Download the needed moduals to play the game, type each install then press enter
  
  -pip install pygame
-  -pip install PySimpleGUI
-  -pip install xlwt
+ 
+ -pip install PySimpleGUI
+ 
+ -pip install xlwt
+ 
 5.) Restart Computer, then launch the gui.py
 
 
