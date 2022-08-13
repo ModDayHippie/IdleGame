@@ -1,4 +1,4 @@
-# IdleGame
+# MDH-ClickerGame
  MDH-ClickerGame is created using python 3.8
  
  Python is needed to run this program on your computer. 
