@@ -5,12 +5,45 @@
  
  head on over to https://www.python.org/downloads/ to grab the latest version
  
- in order to have this program workon your computer you need to install the needed moduals with the command shell
- 
- To install go to "start" then search "Command Prompt"
- 
- after type in "pip install replit"
+ INSTALATION IINSTRUCTIONS FOR WINDOWS
 
-let the command shell run and install the needed modual
+1.) Head on over to https://www.python.org/downloads/ and download the latest verion of python
+
+2.) After installing python open up your command promt,
  
- after run the "MDH-ClickerGame.py" script
+ -Start>Search>cmd>Launch
+
+3.) Download pip, the installer that grabs the moduels
+  
+  -python get-pip.py
+
+4.)Download the needed moduals to play the game, type each install then press enter
+ 
+ -pip install pygame
+  -pip install PySimpleGUI
+  -pip install xlwt
+5.) Restart Computer, then launch the gui.py
+
+
+UBUNTU 20.03
+Python comes pre-packaged with ubuntu 20.04, just make sure your system is up  to date
+1.) Update all packets with
+  -sudo apt-get update
+  -sudo apt-get update
+
+2.) Next we need to install pip
+ -sudo apt install python3-pip
+ -then type "y" when prompted
+ -Test to see that its installed with "pip3 --version"
+
+3.)next install all needed moduals
+ -pip install xlwt
+ -pip install PySimpleGUI
+ -pygame
+
+4). Update and restart computer
+ - sudo apt-get update
+ - sodo apt-get install
+ - Then restart pc
+
+
