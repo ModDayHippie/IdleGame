@@ -33,6 +33,7 @@
  
 5.) Restart Computer, then launch the gui.py
 
+-------------------------------------------------------------------------
 
 UBUNTU 20.03
 Python comes pre-packaged with ubuntu 20.04, just make sure your system is up  to date
