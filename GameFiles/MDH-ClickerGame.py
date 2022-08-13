@@ -38,7 +38,7 @@ mega_reset_cost = 4
 sg.theme('DarkGrey3')
 
 layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), sg.Button('Boss'),
-           [sg.Checkbox('Auto Work:', key='checkbox')],
+           [sg.Checkbox('Hardcore Mode', key='checkbox')],
            sg.Push(), sg.Text("kills"),
            sg.Text(Kills, key='-TEXT3-')],
           [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"),
@@ -57,7 +57,7 @@ layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), s
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
                                 # these numbers are the window sixe first is width second is hight
-window = sg.Window('MDH-ClickerGame', layout, size=(460, 300))
+window = sg.Window('MDH-ClickerGame V0.7.4', layout, size=(510, 310))
 
 # Main Event Loop
 
@@ -100,8 +100,10 @@ while True:
             coins -= 1 * worker_cost
             workers += 1
             worker_cost += 200 * workers
+            Attack += 3
             # these lines update the window, test 1 - 3 are diffrent variables
             window['-TEXT-'].update(coins)
+            window['-TEXT1-'].update(Attack)
             window['-TEXT2-'].update(Health)
             window['-TEXT4-'].update(workers)
             window['-TEXT5-'].update(worker_cost)
@@ -114,9 +116,15 @@ while True:
         sheet1.write(0, 0, "coins")
         sheet1.write(1, 0, "kills")
         sheet1.write(2, 0, "health")
+        sheet1.write(3, 0, "workers")
+        sheet1.write(4, 0, "boss health")
+        sheet1.write(5, 0, "Houses")
         sheet1.write(0, 1, coins)
-        sheet1.write(1, 1, Health)
-        sheet1.write(2, 1, Attack)
+        sheet1.write(1, 1, Kills)
+        sheet1.write(2, 1, Health)
+        sheet1.write(3, 1, workers)
+        sheet1.write(4, 1, Boss_Health)
+        sheet1.write(5, 1, Houses)
         book.save("GameSave.xls")
 
     if event in ('Heal'):

@@ -67,9 +67,16 @@ V0.7 (Housing) Update
 V0.7.1
  -Cleaned up directory
 
-V0.7.1
+V0.7.2
  -Cleaned up directory
  - made the download folder more user freindly
 
 V0.7.3
  -Hotfix for health not working right
+
+V0.7.4
+ -added version number to window name
+ -Fixed windows size so no element is cut off
+ -Changed auto work check to hardcore mode (non functioning)
+ -Updated GameSave, and what info is show on the GameSave Spreadsheet
+ -buffed workers to add 3+ attack * number of workers
