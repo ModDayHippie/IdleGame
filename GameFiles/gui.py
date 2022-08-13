@@ -41,13 +41,14 @@ layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), s
            [sg.Checkbox('Auto Work:', key='checkbox')],
            sg.Push(), sg.Text("kills"),
            sg.Text(Kills, key='-TEXT3-')],
-          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Push(), sg.Text("Slave Cost"),
+          [sg.Text("Health"), sg.Text(Health, key='-TEXT2-'), sg.Button("Buy Slave"), sg.Button('Buy House'), sg.Push(), sg.Text("Slave Cost"),
            sg.Text(worker_cost, key='-TEXT5-')],
           [sg.Text("Attack"), sg.Text(Attack, key='-TEXT1-'), sg.Button("Work"), sg.Button("Grind"), sg.Push(), sg.Text("Difficulty"),
            sg.Text(EDam, key='-TEXT6-')],
           [sg.Text("Workers"), sg.Text(workers, key='-TEXT4-'), sg.Button("Heal"), sg.Push(),
            sg.Text("Boss Health"), sg.Text(Boss_Health, key='-TEXT7-')],
-          [sg.Button("Quit"), sg.Button("Save"), sg.Push(), sg.Text("Boss Attack"), sg.Text(Boss_Attack, key='-TEXT8-')],
+          [sg.Text("Houses"), sg.Text(Houses, key='-TEXT9-'), sg.Push(), sg.Text("Boss Attack"), sg.Text(Boss_Attack, key='-TEXT8-')],
+          [sg.Button("Quit"), sg.Button("Save")],
           [sg.VPush(), sg.Text("https://github.com/ModDayHippie/IdleGame/tree/main for more updates"),
            [sg.Text("Goal of the game is to kill 1000 bad guys!!")],
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
@@ -68,6 +69,7 @@ while True:
     window['-TEXT6-'].update(EDam)
     window['-TEXT7-'].update(Boss_Health)
     window['-TEXT8-'].update(Boss_Attack)
+    window['-TEXT-'].update(Houses)
 
     if event in ('Quit'):
         break
@@ -197,6 +199,36 @@ while True:
             window['-TEXT3-'].update(Kills)
             window['-TEXT7-'].update(Boss_Health)
             window['-TEXT8-'].update(Boss_Attack)
+
+    if event in ('Buy House'):
+        if coins <= House_Cost:
+            window['-TEXT-'].update(coins)
+            window['-TEXT1-'].update(Attack)
+            window['-TEXT2-'].update(Health)
+            window['-TEXT3-'].update(Kills)
+            window['-TEXT4-'].update(workers)
+            window['-TEXT5-'].update(worker_cost)
+            window['-TEXT6-'].update(EDam)
+            window['-TEXT7-'].update(Boss_Health)
+            window['-TEXT8-'].update(Boss_Attack)
+        else:
+            mixer.init()
+            mixer.music.load("coin.mp3")
+            mixer.music.set_volume(10)
+            mixer.music.play()
+            coins -= 1 * House_Cost
+            Houses += 1
+            worker_cost += 200 * workers
+            # these lines update the window, test 1 - 3 are diffrent variables
+            window['-TEXT-'].update(coins)
+            window['-TEXT2-'].update(Health)
+            window['-TEXT4-'].update(workers)
+            window['-TEXT5-'].update(worker_cost)
+            print("House Buy DEBUG")
+
+
+
+
 
     if event in ('Grind'):
         Grind_Rng = random.randint(0, 10)
