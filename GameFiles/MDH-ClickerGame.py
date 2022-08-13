@@ -5,7 +5,7 @@ import os
 from pygame import mixer
 
 # Configs
-coins = 0
+coins = 10002
 Health = 10
 Houses = 0
 workers = 1
@@ -57,7 +57,7 @@ layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), s
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
                                 # these numbers are the window sixe first is width second is hight
-window = sg.Window('MDH-ClickerGame V0.7.4', layout, size=(510, 310))
+window = sg.Window('MDH-ClickerGame V0.7.5', layout, size=(510, 310))
 
 # Main Event Loop
 
@@ -244,7 +244,7 @@ while True:
             mixer.music.play()
             coins -= 1 * House_Cost
             Houses += 1
-            worker_cost += 200 * workers
+            worker_cost -= 1500 * Houses
             Attack += 10
             # these lines update the window, test 1 - 3 are diffrent variables
             window['-TEXT-'].update(coins)

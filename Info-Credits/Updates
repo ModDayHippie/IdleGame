@@ -80,3 +80,9 @@ V0.7.4
  -Changed auto work check to hardcore mode (non functioning)
  -Updated GameSave, and what info is show on the GameSave Spreadsheet
  -buffed workers to add 3+ attack * number of workers
+
+V0.7.5
+ - updated version number on header
+ - Updated wiki
+ - Updated Readme.md
+ - Changed git repo name to MDH-CLickerGame
