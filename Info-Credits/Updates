@@ -86,3 +86,15 @@ V0.7.5
  - Updated wiki
  - Updated Readme.md
  - Changed git repo name to MDH-CLickerGame
+
+V0.7.6
+ -changed theme to darkgray
+ -change hardcore checkbox to sound toggle, still dose not work
+ -added skill buttons
+ -added a few comments for refrence, attached spaced comments to what they were ment to be
+ -Added mine button and ore count (no porpouse yet)
+ -Spaced out pysimp section for easier reading
+ -Added Wood CuttingButton and wood count
+ -Added Hunting button and function
+ -Hunting, Cutting Wood and Mining do not play any role in the game as of yet, plan to have buildable tools at some point
+ -
