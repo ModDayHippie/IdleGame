@@ -15,7 +15,7 @@
 
 3.) Open Git directory with Pycharm (the whole folder and not just the .py)
 
-4.) add pythonintepreter file to \venv\Scripts\ 
+4.) add pythonintepreter file to \venv\Scripts\ rename and replace the existing Python.exe
 
 -------------------------------------------------------------------------
 
