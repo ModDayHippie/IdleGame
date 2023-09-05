@@ -1,10 +1,10 @@
 V0.1 "Origins" Update
  -Got base code from https://replit.com/talk/share/Python-ClickerIdle-game/24742
  -Added house item to game and changed how the game worded things
- -Started ading health system
+ -Started adding health system
  -added house count to menu
  -Added Attack_Rng
- -added consistant health to main menu
+ -added consistent health to main menu
  -added health packs that heal your overall health
  -added base code to the file directory
  -when your reset your progress you gain +5 health
@@ -12,22 +12,22 @@ V0.1 "Origins" Update
  -Added boss battle with a reward of 200 coins
 
 V0.0.1 "GUI" Update
- -Added Gamesave feature, working on loading save data
- -front end drafted just needs to be murged with the back end
- -made gui show updated informations on coins
+ -Added Games ave feature, working on loading save data
+ -front end drafted just needs to be merged with the back end
+ -made gui show updated information's on coins
  -made gui fully update data about game (coins, health, workers, ect)
  -Muted all lines that pertained to the terminal only version (V0.1)
  -added end game when you die or go broke
  -added death screen that kills the script on exit
- -added work fuction that gives lower ammounts of coins but no risk to health
+ -added work function that gives lower amounts of coins but no risk to health
 
 V0.3 "Clean-Up" Update
  -Renamed Main.py to Base.py
  -Removed all traces of old terminal builds from gui script
  -Deleted test.py
  -Updated Readme and Credits
- -Removed unneeded moduals
- -Formated code to PEP:8
+ -Removed unneeded modals
+ -Formatted code to PEP:8
  -added/Updated comments
 
 V0.4 (Logistics) Update
@@ -36,11 +36,11 @@ V0.4 (Logistics) Update
  -Tweaked sound levels
  -Added Slave cost to gui
  -Slave cost now increases by 200 * workers when buying a new worker
- -Added eneime dificulty that incresses by 0.3 * kills
+ -Added enemy difficulty that increases by 0.3 * kills
 
 V0.5 (Format) Update
 -Cleaned up Directory
--Formated Gui to be more asteticly pleasing
+-Formatted Gui to be more ascetically pleasing
 -added game info to bottom of gui
 
 V0.6 (Boss) Update
@@ -51,8 +51,8 @@ V0.6 (Boss) Update
  -added a grind button that grinds 10 works, has rng that makes one of your workers die if failed
  -added attack increase scaling up till 20 kills
  -Tweaked Grind RNG
- -Can No longer "die" from buying a slave when not havingn enough money
- -Changed game name to MDH-CLickerGame
+ -Can No longer "die" from buying a slave when not having enough money
+ -Changed game name to MDH-ClickerGame
 
 V0.7 (Housing) Update
  -Added house count and house buy button
@@ -69,7 +69,7 @@ V0.7.1
 
 V0.7.2
  -Cleaned up directory
- - made the download folder more user freindly
+ - made the download folder more user friendly
 
 V0.7.3
  -Hotfix for health not working right
@@ -94,5 +94,8 @@ V0.7.6
 
 V0.7.7
  - removed more old install methods
+ - fixed spelling in updates.txt
+ - removed unneeded files
+ -
  
  
