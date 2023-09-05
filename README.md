@@ -13,26 +13,13 @@
  
  INSTALATION IINSTRUCTIONS FOR WINDOWS
 
-1.) Head on over to https://www.python.org/downloads/ and download the latest verion of python
+1.) Install PyCharm https://www.jetbrains.com/pycharm/download/?section=windows
 
-2.) After installing python open up your command promt,
- 
- - Start>Search>cmd>Launch
+2.) Clone Git
 
-3.) Download pip, the installer that grabs the moduels
-  
-  - python get-pip.py
+3.) Open Git directory with Pycharm (the whole folder and not just the .py)
 
-4.)Download the needed moduals to play the game, type each install then press enter
- 
- - pip install pygame
- 
- - pip install PySimpleGUI
- 
- - pip install xlwt
- 
-5.) Restart Computer, then launch the gui.py
-
+4.) add pythonintepreter file to \venv\Scripts\ 
 -------------------------------------------------------------------------
 
 UBUNTU 20.03
