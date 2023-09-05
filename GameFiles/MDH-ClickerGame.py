@@ -57,7 +57,7 @@ layout = [[sg.Text("Coins"), sg.Text(coins, key='-TEXT-'), sg.Button("Fight"), s
                     [sg.Text(" The game will end if you have 0 health or negitive money")]]]
 
                                 # these numbers are the window sixe first is width second is hight
-window = sg.Window('MDH-ClickerGame V0.7.6', layout, size=(510, 310))
+window = sg.Window('MDH-ClickerGame V0.7.7', layout, size=(510, 310))
 
 # Main Event Loop
 
