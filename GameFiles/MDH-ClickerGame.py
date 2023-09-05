@@ -5,7 +5,7 @@ import os
 from pygame import mixer
 
 # Configs
-coins = 10002
+coins = 2000
 Health = 10
 Houses = 0
 workers = 1

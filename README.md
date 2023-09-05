@@ -3,11 +3,11 @@
  
  This game is a work in progress and is currently open source.
  
- for more information Eamil j.gowans@mdh-dev.com
+ for more information Email j.gowans989@gmaim.com
  
  -----------------------------------------------------------------------------
  
- INSTALATION IINSTRUCTIONS FOR WINDOWS
+ INSTALLATION INSTRUCTIONS FOR WINDOWS
 
 1.) Install PyCharm https://www.jetbrains.com/pycharm/download/?section=windows
 
@@ -15,7 +15,7 @@
 
 3.) Open Git directory with Pycharm (the whole folder and not just the .py)
 
-4.) add pythonintepreter file to \venv\Scripts\ rename and replace the existing Python.exe
+4.) Open requirements.txt in pycharm and install dependencies
 
 -------------------------------------------------------------------------
 
