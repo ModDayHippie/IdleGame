@@ -3,7 +3,7 @@
  
  This game is a work in progress and is currently open source.
  
- for more information Email j.gowans989@gmaim.com
+ for more information Email j.gowans989@gmail.com
  
  -----------------------------------------------------------------------------
  
