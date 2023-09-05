@@ -1,10 +1,6 @@
 # MDH-ClickerGame
  MDH-ClickerGame is created using python 3.8
  
- Python is needed to run this program on your computer. 
- 
- head on over to https://www.python.org/downloads/ to grab the latest version
- 
  This game is a work in progress and is currently open source.
  
  for more information Eamil j.gowans@mdh-dev.com
