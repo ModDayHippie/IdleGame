@@ -17,6 +17,8 @@
 
 4.) Open requirements.txt in pycharm and install dependencies
 
+5.) Go to GameFile and launch MH-ClickerGame.pys
+
 -------------------------------------------------------------------------
 
 UBUNTU 20.03

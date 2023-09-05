@@ -90,5 +90,6 @@ V0.7.5
 V0.7.6
  - updated version number
  - change the way you install the game to use Pycharm with requirement.txt
+ - removed old methods of installation
  
  
